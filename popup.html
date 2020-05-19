@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>谷歌拓展插件</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./common.css">
+</head>
+
+<body>
+    <div class="toQrcode">
+        <div id="qrcodeContent">
+        </div>
+        <div class="toolList">
+            <button  class="down" title="当前页面地址对应的二维码" defaultId="0">当前</button>
+            <button  class="down" title="本地ip地址对应的二维码" id="createByIp" defaultId="1">本地ip</button>
+            <button  class="down" title="自定义地址对应的二维码" id="custom" defaultId="2">自定义</button>
+            <button  class="down" title="下载二维码" id="downQrcode" defaultId="3">下载</button>
+            
+        </div>
+        <div class="showInput">
+            <input type="text" class="input" id="userInput" maxlength="100" placeholder="请输入地址(最大100个字符)" />
+        </div>
+    </div>
+</body>
+
+<script src="jquery.min.js"></script>
+<script src="qrcode.min.js"></script>
+<script src="tool.js"></script>
+<script src="popup.js"></script>
+<!-- <script src="a.js"></script> -->
+
+</html>
