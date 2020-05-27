@@ -12,6 +12,5 @@ function createRightMenu() {
             window.open(chrome.runtime.getURL('options.html'));
         }
     }, function (res) {
-        localStorage.setItem("isCreate", true);
     })
 }

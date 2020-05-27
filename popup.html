@@ -11,13 +11,19 @@
 
 <body>
     <div class="toQrcode">
+        <div class="operateState">
+            <span class="copySuccess">&#xe62e;</span>
+            <label for="">以成功复制</label>
+   </div>
         <div id="qrcodeContent">
         </div>
+        <p for="" id="ipaddress"></p>
         <div class="toolList">
             <button  class="down" title="当前页面地址对应的二维码" defaultId="0">当前</button>
             <button  class="down" title="本地ip地址对应的二维码" id="createByIp" defaultId="1">本地ip</button>
             <button  class="down" title="自定义地址对应的二维码" id="custom" defaultId="2">自定义</button>
             <button  class="down" title="下载二维码" id="downQrcode" defaultId="3">下载</button>
+           
             
         </div>
         <div class="showInput">
@@ -29,7 +35,9 @@
 <script src="jquery.min.js"></script>
 <script src="qrcode.min.js"></script>
 <script src="tool.js"></script>
+<script src="./clipboard.min.js"></script>
 <script src="popup.js"></script>
+
 <!-- <script src="a.js"></script> -->
 
 </html>

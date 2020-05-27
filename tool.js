@@ -1,10 +1,14 @@
-function createByurl() {
+function createByurl(){
     chrome.tabs.getSelected(function (tab) {
         currentUrl = tab.url;
+         // 存储当前url
+         chrome.storage.local.set({
+            currentUrl: currentUrl
+        })
+        console.log("成功设置")
         initQrcode(currentUrl);
     })
 }
-
 function downQrcode() {
     let qrcodeImg = $("#qrcodeContent img").attr("src");
     let a = document.createElement("a");
@@ -23,6 +27,7 @@ function createByIp() {
             replaceTemplate = "127.0.0.1"
         }
         initQrcode(currentUrl.replace(replaceTemplate, result)); //127.0.0.1  localhost替换成本地ip
+        
     })
 
 
@@ -30,14 +35,27 @@ function createByIp() {
 
 function initQrcode(url) {
     $("#qrcodeContent").html(""); //清空
+    $("#ipaddress").text(url);
     let qrcode = new QRCode("qrcodeContent", {
+        render: "canvas",
         text: url,
-        width: 160,
-        height: 160,
+        width: 128,
+        height: 128,
+        typeNumber:-1,
         colorDark: "#ffffff",
         colorLight: "#0050b3",
-        correctLevel: 3
+        correctLevel: QRCode.CorrectLevel.H 
     });
+  
+    // let canvas=document.getElementsByTagName("canvas")[0];
+    // $("")
+    // var img=converCanvasToUrl(canvas);
+    // $("#qrcodeContent").append(img);
+}
+function converCanvasToUrl(canvas){
+    var  image=new Image();
+    image.src=canvas.toDataURL("image/png");
+    return image;
 }
 //get the IP addresses associated with an account
 function getIPs(callback) {
