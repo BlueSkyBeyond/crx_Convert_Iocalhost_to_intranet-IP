@@ -8,7 +8,7 @@ document.querySelector(".toolList").addEventListener("click", function (e) {
         createByurl();
     }
     if (clickIndex == 1) {
-        createByIp()
+        createByIp();
     }
     if (clickIndex == 3) {
         downQrcode();
@@ -43,12 +43,6 @@ $('#userInput').on('keypress', function (ev) {
 
 window.onload = function () {
     createByurl();
-    chrome.storage.local.get(["currentUrl"], function (res) {
-        console.log("拿到的数据是", res);
-        $(".toolList").append($(` <button class="down copy" data-clipboard-text="${res.currentUrl}">copy</button>`))
-    })
-
-
 }
 let clipboard = new ClipboardJS('.copy');
 clipboard.on('success', function (e) {

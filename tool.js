@@ -1,10 +1,6 @@
 function createByurl(){
     chrome.tabs.getSelected(function (tab) {
         currentUrl = tab.url;
-         // 存储当前url
-         chrome.storage.local.set({
-            currentUrl: currentUrl
-        })
         console.log("成功设置")
         initQrcode(currentUrl);
     })
@@ -27,7 +23,6 @@ function createByIp() {
             replaceTemplate = "127.0.0.1"
         }
         initQrcode(currentUrl.replace(replaceTemplate, result)); //127.0.0.1  localhost替换成本地ip
-        
     })
 
 
@@ -35,7 +30,7 @@ function createByIp() {
 
 function initQrcode(url) {
     $("#qrcodeContent").html(""); //清空
-    $("#ipaddress").text(url);
+    $("#ipaddress").text(url).attr("value",url);
     let qrcode = new QRCode("qrcodeContent", {
         render: "canvas",
         text: url,

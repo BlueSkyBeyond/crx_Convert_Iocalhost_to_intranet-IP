@@ -95,7 +95,7 @@
 }
 .copySuccess{
     font-family: "iconfont";
-    color:white;
+    color:greenyellow;
     font-size: 40px;
 }
 .operateState{
@@ -107,7 +107,7 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.9);
     left:20px;
     top:20px;
     color:white;
@@ -118,8 +118,12 @@
 .showState{
     display: block;
     display: flex;
-    animation: showState  1.2s ease both;
+    animation: showState 1.5s ease;
 }
+input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+
+ }
 @keyframes showDom{
     0%{
       transform: translateX(60px);
@@ -131,13 +135,14 @@
 @keyframes showState{
     0%{
         transform: translateX(60px);
+        opacity: 0;
       }
-      100%{
-          transform: translateX(0px);
-      }
-}
-@keyframes hiddenState{
-      100%{
-          transform: translateX(0px);
-      }
+     50%{
+        transform: translateX(0);
+        opacity: 1;
+     }
+     100%{
+         transform: translateX(-160px);
+         opacity: 0;
+     }
 }
